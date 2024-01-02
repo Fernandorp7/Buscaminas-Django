@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Crear tablero buscaminas</title>
+</head>
+
+<body>
+<div class="contenedorForm">
+<form method="POST">
+    {% csrf_token %} {{ tablero_form.as_div }}
+    <input type="submit" value="Enviar" class="botonCrear"/>
+</form>
+</div>
+</body>
+
+</html>

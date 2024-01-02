@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Mostrar tablero buscaminas</title>
+</head>
+
+<body>
+    <div class="contenedor">
+    <table class="tabla">
+    {% for fila in tablero.casillas %}
+        <tr>
+        {% for casilla in fila %}
+            {% if casilla.is_mina %}
+                <td class="casilla-mina" style="color:blue">X</td>
+            {% else %}
+                <td class="casilla-adyacente">{{ casilla.adyacente }}</td>
+            {% endif %}
+        {% endfor %}
+        </tr>
+        {% endfor %}
+    </div>
+</table>
+</body>
+
+</html>
